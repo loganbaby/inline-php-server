@@ -1,0 +1,27 @@
+#!/usr/bin/php
+
+<?php
+
+function help() 
+   {
+      echo "
+         usage: phpServer host port
+      ".PHP_EOL;
+      exit();
+   }
+
+if(isset($argv[1])) {
+     $host = $argv[1];
+   } else {
+     help();
+   }
+   
+   if(isset($argv[2])) {
+     $port = $argv[2];
+   } else {
+     help();
+   }
+
+   system(sprintf('php -S %s:%s', $host, $port));
+
+?>
